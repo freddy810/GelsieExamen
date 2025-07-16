@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 
 class AbsenceController extends Controller
 {
-    
+
     public function index()
     {
-        $absence = Absence::paginate(5);
+        $absences = Absence::paginate(5);
         return view('absences.index', compact('absences'));
     }
 
@@ -23,11 +23,10 @@ class AbsenceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'Employe concerne'=>'required',
-            'Type'=>'required',
-            'Date debut'=>'required',
-            'Date fin'=>'required',
-            'statut'=>'required',
+            'Type' => 'required',
+            'Date_debut' => 'required',
+            'Date_fin' => 'required',
+            'Statut' => 'required',
         ]);
 
         Absence::create($request->all());
@@ -50,23 +49,20 @@ class AbsenceController extends Controller
     public function update(Request $request, Absence $absence)
     {
         $request->validate([
-            'Employe_concerne'=>'required',
-            'Type'=>'required',
-            'Date_debut'=>'required',
-            'Date_fin'=>'required',
-            'statut'=>'required',
+            'Type' => 'required',
+            'Date_debut' => 'required',
+            'Date_fin' => 'required',
+            'Statut' => 'required',
         ]);
 
         $absence->update($request->all());
         return redirect()->route('absences.index');
     }
 
-   
+
     public function destroy(Absence $absence)
     {
         $absence->delete();
         return redirect()->route('absences.index');
     }
 }
-
-

@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Absence extends Model
 {
     use HasFactory;
-    protected $fillable = ['Employe_concerne', 'Type','Date_debut','Date_fin','Statut'];
+    protected $fillable = ['Type', 'Date_debut', 'Date_fin', 'Statut', 'employes_id'];
+
+    public function employe()
+    {
+        return $this->belongsTo(Employe::class, 'employes_id');
+    }
 }

@@ -12,10 +12,8 @@ use App\Models\Absence;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/',[homeController::class, 'index'])->name('home');
+Route::get('/', [homeController::class, 'index'])->name('home');
 Route::resource('employes', EmployeController::class);
 Route::resource('postes', PosteController::class);
 Route::resource('departements', DepartementController::class);
 Route::resource('absences', AbsenceController::class);
-
-

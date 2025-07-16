@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('absences', function (Blueprint $table) {
             $table->id();
+            $table->string('Type');
+            $table->string('Date_debut');
+            $table->string('Date_fin');
+            $table->string('Statut');
             $table->timestamps();
         });
     }

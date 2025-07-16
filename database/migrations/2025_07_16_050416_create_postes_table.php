@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('postes', function (Blueprint $table) {
             $table->id();
+            $table->string('Intitule');
+            $table->string('Description');
+            $table->string('Niveau_hierarchique');
             $table->timestamps();
         });
     }
